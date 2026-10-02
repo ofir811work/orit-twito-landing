@@ -1,5 +1,11 @@
 node_modules/
 screenshot*.png
 view-site.js
+check-site.js
+deploy-to-netlify.sh
+site-live-screenshot.png
 package-lock.json
 .DS_Store
+
+# Local Netlify folder
+.netlify
