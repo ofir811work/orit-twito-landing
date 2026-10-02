@@ -211,10 +211,8 @@ h1, h2, h3 {
 
 .name {
     display: block;
-    background: linear-gradient(135deg, var(--warm-pink), var(--accent-peach));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a1a1a;
+    font-weight: 700;
 }
 
 .subtitle {
