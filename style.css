@@ -211,8 +211,21 @@ h1, h2, h3 {
 
 .name {
     display: block;
-    color: #1a1a1a;
+    background: linear-gradient(135deg, #8B3A62 0%, #C44569 50%, #994D6B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 700;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .subtitle {
@@ -725,4 +738,147 @@ h1, h2, h3 {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ===========================
+   Section Transition Animations
+   =========================== */
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sectionSlideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes sectionSlideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes sectionZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animations to sections when they become visible */
+section {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+}
+
+.about.visible {
+    animation: sectionSlideInRight 0.8s ease-out forwards;
+}
+
+.services.visible {
+    animation: sectionFadeIn 0.8s ease-out forwards;
+}
+
+.online-consult.visible {
+    animation: sectionSlideInLeft 0.8s ease-out forwards;
+}
+
+.info-cards.visible {
+    animation: sectionZoomIn 0.8s ease-out forwards;
+}
+
+.contact.visible {
+    animation: sectionFadeIn 0.8s ease-out forwards;
+}
+
+/* Stagger animation for service cards */
+.service-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-out;
+}
+
+.services.visible .service-card {
+    animation: slideInBottom 0.6s ease-out forwards;
+}
+
+.services.visible .service-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.services.visible .service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.services.visible .service-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.services.visible .service-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.services.visible .service-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Info cards stagger */
+.info-card {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s ease-out;
+}
+
+.info-cards.visible .info-card {
+    animation: sectionZoomIn 0.6s ease-out forwards;
+}
+
+.info-cards.visible .info-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.info-cards.visible .info-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.info-cards.visible .info-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Smooth scroll with parallax effect */
+@media (prefers-reduced-motion: no-preference) {
+    .hero-overlay {
+        transition: transform 0.5s ease-out;
+    }
+    
+    body.scrolling .hero-overlay {
+        transform: translateY(var(--scroll-offset, 0));
+    }
 }
