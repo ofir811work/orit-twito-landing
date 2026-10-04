@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אורית טויטו | יועצת הנקה מוסמכת</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d4a5a5;
+            --primary-dark: #c48b8b;
+            --secondary: #f5ebe0;
+            --accent: #8b7355;
+            --text-dark: #4a4a4a;
+            --text-light: #6b6b6b;
+            --white: #ffffff;
+            --cream: #fdfbf7;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            14% {
+                transform: scale(1.1);
+            }
+            28% {
+                transform: scale(1);
+            }
+            42% {
+                transform: scale(1.1);
+            }
+            70% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-dark);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 20px 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 165, 0.1) 0%, transparent 50%);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 10px 30px rgba(212, 165, 165, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-badge.experience {
+            top: 20%;
+            left: -30px;
+            animation-delay: 0s;
+        }
+
+        .floating-badge.rating {
+            bottom: 20%;
+            left: -40px;
+            animation-delay: 0.5s;
+        }
+
+        .floating-badge .number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .floating-badge .text {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--cream) 0%, white 100%);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .about-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 30px;
+            bottom: -30px;
+            left: -30px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .about-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .about-feature:hover {
+            transform: translateX(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .about-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .about-feature-text h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .about-feature-text p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 20px;
+            background: var(--secondary);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--secondary), var(--cream));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.2rem;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Online Section */
+        .online {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .online::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .online-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .online .section-tag {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .online .section-title {
+            color: white;
+        }
+
+        .online-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .online-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .online-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .online-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            padding: 35px;
+            border-radius: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .testimonial-info p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-stars {
+            color: #ffc107;
+            margin-top: 5px;
+        }
+
+        /* Coverage Section */
+        .coverage {
+            padding: 80px 20px;
+            background: var(--cream);
+        }
+
+        .coverage-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .coverage-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .coverage-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 20px 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .coverage-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .coverage-badge-icon {
+            font-size: 1.8rem;
+        }
+
+        .coverage-badge-text {
+            text-align: right;
+        }
+
+        .coverage-badge-text h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .coverage-badge-text p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--secondary) 100%);
+            position: relative;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .cta-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 20px 50px;
+            border-radius: 60px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(212, 165, 165, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .cta-phone:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 165, 165, 0.5);
+        }
+
+        .cta-phone-icon {
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .cta-note {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-note span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .hero-image img {
+                max-width: 400px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                margin: 0 auto 35px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .floating-badge {
+                display: none;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-image img {
+                margin: 0 auto;
+                display: block;
+            }
+
+            .about-feature:hover {
+                transform: none;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-phone {
+                font-size: 1.4rem;
+                padding: 18px 35px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-contact-item {
+                justify-content: center;
+            }
+
+            .coverage-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .online-features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            padding: 80px 30px 30px;
+            transition: right 0.3s ease;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu a {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary-dark);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🤱</div>
+                <span>אורית טויטו</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#services">שירותים</a></li>
+                    <li><a href="#testimonials">המלצות</a></li>
+                    <li><a href="#contact">צרי קשר</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
+        <ul>
+            <li><a href="#about" onclick="toggleMobileMenu()">אודות</a></li>
+            <li><a href="#services" onclick="toggleMobileMenu()">שירותים</a></li>
+            <li><a href="#testimonials" onclick="toggleMobileMenu()">המלצות</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">צרי קשר</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-image">
+                <img src="orit.jpg" alt="אורית טויטו - יועצת הנקה">
+                <div class="floating-badge experience">
+                    <div class="number">+10</div>
+                    <div class="text">שנות ניסיון</div>
+                </div>
+                <div class="floating-badge rating">
+                    <div class="number">⭐ 5.0</div>
+                    <div class="text">דירוג לקוחות</div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <span class="hero-badge">🤍 ליווי מקצועי ורגיש</span>
+                <h1 class="hero-title">נעים להכיר,<br>אני <span>אורית טויטו</span></h1>
+                <p class="hero-subtitle">אחות ילדים ויועצת הנקה מוסמכת</p>
+                <p class="hero-description">
+                    בעלת ניסיון של למעלה מעשור בתחום. אני מלווה אמהות ותינוקות באופן מקצועי, אישי ורגיש - כי כל אמא וכל תינוק הם עולם ומלואו.
+                </p>
+                <div class="hero-buttons">
+                    <a href="tel:054-422-8583" class="btn btn-primary">
+                        <span>📞</span>
+                        התקשרי עכשיו
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        לשירותים שלי
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item animate-on-scroll">
+                <div class="stat-icon">👶</div>
+                <div class="stat-number">+1000</div>
+                <div class="stat-text">תינוקות שליוויתי</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <div class="stat-icon">⏰</div>
+                <div class="stat-number">+10</div>
+                <div class="stat-text">שנות ניסיון</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <div class="stat-icon">🏥</div>
+                <div class="stat-number">100%</div>
+                <div class="stat-text">מקצועיות</div>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <div class="stat-icon">💗</div>
+                <div class="stat-number">5.0</div>
+                <div class="stat-text">דירוג שביעות רצון</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image animate-on-scroll">
+                <img src="IMG-20261004-WA0003.jpg" alt="אורית טויטו">
+                <div class="about-decoration"></div>
+            </div>
+            <div class="about-content animate-on-scroll">
+                <span class="section-tag">👋 קצת עליי</span>
+                <h2 class="section-title">ניסיון, מקצועיות<br>והרבה לב</h2>
+                <p class="about-text">
+                    לאורך השנים עבדתי כאחות בפגייה וכאחות ילדים בקהילה, וצברתי ניסיון רב בליווי אמהות ותינוקות בתקופה הרגישה והמיוחדת הזו.
+                </p>
+                <p class="about-text">
+                    כיום אני מציעה הכנה להנקה עוד לפני הלידה, ייעוצי הנקה וליווי אישי לאחר הלידה, תוך התאמת המענה לצרכים הייחודיים של כל אמא ותינוק.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🎓</div>
+                        <div class="about-feature-text">
+                            <h4>הסמכה מקצועית</h4>
+                            <p>יועצת הנקה מוסמכת עם ניסיון קליני</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">🏥</div>
+                        <div class="about-feature-text">
+                            <h4>רקע רפואי</h4>
+                            <p>אחות ילדים עם ניסיון בפגייה ובקהילה</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">💝</div>
+                        <div class="about-feature-text">
+                            <h4>גישה אישית</h4>
+                            <p>התאמה לצרכים הייחודיים שלך ושל תינוקך</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <span class="section-tag">✨ השירותים שלי</span>
+                <h2 class="section-title">במה אני יכולה לעזור לך?</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🤰</div>
+                    <h3 class="service-title">הכנה להנקה טרם הלידה</h3>
+                    <p class="service-description">
+                        ידע, כלים והכנה מעשית לקראת התחלה רגועה ובטוחה יותר. נכיר את האתגרים ונתכונן אליהם מראש.
+                    </p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🤱</div>
+                    <h3 class="service-title">ייעוץ הנקה לאחר הלידה</h3>
+                    <p class="service-description">
+                        התמודדות עם קשיים ואתגרים בהנקה, והתאמת הפתרונות לצרכים שלך ושל תינוקך באופן מדויק.
+                    </p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🍼</div>
+                    <h3 class="service-title">הגברת חלב</h3>
+                    <p class="service-description">
+                        בעלת ניסיון בליווי תהליכים להגברת ייצור החלב, תוך התאמה אישית למצבך ולצרכים של התינוק.
+                    </p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">📋</div>
+                    <h3 class="service-title">תוכנית שאיבות אישית</h3>
+                    <p class="service-description">
+                        התאמת תוכנית שאיבות אישית בהתאם למטרות שלך, לשגרת היום ולצרכים של התינוק.
+                    </p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">🤗</div>
+                    <h3 class="service-title">ליווי אישי לאחר הלידה</h3>
+                    <p class="service-description">
+                        תמיכה, הכוונה ומענה מקצועי לשאלות ולאתגרים שעולים לאורך הדרך. את לא לבד.
+                    </p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">💬</div>
+                    <h3 class="service-title">זמינות לשאלות</h3>
+                    <p class="service-description">
+                        מענה לשאלות ותהיות שעולות בתהליך. כי לפעמים מספיקה הכוונה קטנה כדי להמשיך בביטחון.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Section -->
+    <section class="online">
+        <div class="online-container animate-on-scroll">
+            <span class="section-tag">💻 ייעוץ אונליין</span>
+            <h2 class="section-title">ייעוץ גם מרחוק</h2>
+            <p class="online-text">
+                לא תמיד אפשר להגיע לייעוץ פרונטלי, ולכן אני מציעה גם ייעוצי הנקה וליווי אונליין, המאפשרים לקבל הכוונה מקצועית ונגישה גם מהבית.
+            </p>
+            <div class="online-features">
+                <div class="online-feature">
+                    <div class="online-feature-icon">🏠</div>
+                    <span>מהנוחות של הבית</span>
+                </div>
+                <div class="online-feature">
+                    <div class="online-feature-icon">⏰</div>
+                    <span>גמישות בשעות</span>
+                </div>
+                <div class="online-feature">
+                    <div class="online-feature-icon">📱</div>
+                    <span>בווידאו או בטלפון</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <span class="section-tag">💬 המלצות</span>
+                <h2 class="section-title">מה אומרות האמהות</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        אורית הצילה לי את ההנקה! אחרי שבועות של תסכול וכאב, פגישה אחת איתה שינתה את הכל. מקצועית, סבלנית ובעיקר - אנושית.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ש</div>
+                        <div class="testimonial-info">
+                            <h4>שירה כ.</h4>
+                            <p>אמא לתינוק בן 3 חודשים</p>
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        ההכנה להנקה לפני הלידה עזרה לי להרגיש הרבה יותר בטוחה. ידעתי למה לצפות ואיך להתמודד. ממליצה בחום!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">מ</div>
+                        <div class="testimonial-info">
+                            <h4>מיכל ד.</h4>
+                            <p>אמא טרייה</p>
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        הייעוץ האונליין היה מושלם בשבילי. לא הייתי צריכה לצאת מהבית עם התינוק, וקיבלתי מענה מקצועי ומדויק. תודה רבה!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">נ</div>
+                        <div class="testimonial-info">
+                            <h4>נועה ל.</h4>
+                            <p>אמא לתינוקת</p>
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="coverage">
+        <div class="coverage-container animate-on-scroll">
+            <span class="section-tag">📍 אזורי שירות</span>
+            <h2 class="section-title">איפה אני נותנת שירות?</h2>
+            <div class="coverage-badges">
+                <div class="coverage-badge">
+                    <div class="coverage-badge-icon">📍</div>
+                    <div class="coverage-badge-text">
+                        <h4>מהשפלה ועד הדרום</h4>
+                        <p>ייעוצים פרונטליים</p>
+                    </div>
+                </div>
+                <div class="coverage-badge">
+                    <div class="coverage-badge-icon">💻</div>
+                    <div class="coverage-badge-text">
+                        <h4>בכל הארץ</h4>
+                        <p>ייעוצים אונליין</p>
+                    </div>
+                </div>
+                <div class="coverage-badge">
+                    <div class="coverage-badge-icon">💗</div>
+                    <div class="coverage-badge-text">
+                        <h4>החזרים מקופות החולים</h4>
+                        <p>בהתאם לתנאי הזכאות</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-container animate-on-scroll">
+            <span class="section-tag">📞 צרי קשר</span>
+            <h2 class="cta-title">רוצה ליווי מקצועי, אישי ורגיש?</h2>
+            <p class="cta-text">אני כאן כדי לעזור לך למצוא את הדרך שמתאימה לך ולתינוק שלך.</p>
+            <a href="tel:054-422-8583" class="cta-phone">
+                <span class="cta-phone-icon">📞</span>
+                054-422-8583
+            </a>
+            <div class="cta-note">
+                <span>✓ מענה מהיר</span>
+                <span>✓ שיחת ייעוץ ראשונית</span>
+                <span>✓ התאמה אישית</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>🤱 אורית טויטו</h3>
+                <p>
+                    אחות ילדים ויועצת הנקה מוסמכת עם ניסיון של למעלה מעשור. מלווה אמהות ותינוקות באופן מקצועי, אישי ורגיש.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>ניווט מהיר</h4>
+                <ul>
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#services">שירותים</a></li>
+                    <li><a href="#testimonials">המלצות</a></li>
+                    <li><a href="#contact">צרי קשר</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>יצירת קשר</h4>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <span>054-422-8583</span>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📍</span>
+                    <span>מהשפלה ועד הדרום</span>
+                </div>
+                <div class="footer-contact-item">
+                    <span>💻</span>
+                    <span>ייעוצים אונליין בכל הארץ</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 אורית טויטו - יועצת הנקה. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/972544228583" target="_blank" class="whatsapp-float" title="שלחי הודעה בוואטסאפ">
+        💬
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+            document.querySelector('.mobile-menu-overlay').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.mobile-menu').classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.stat-number').forEach(el => {
+                        const text = el.textContent;
+                        if (text.includes('+')) {
+                            const num = parseInt(text.replace('+', ''));
+                            el.textContent = '0';
+                            setTimeout(() => {
+                                animateCounter(el, num, 2000);
+                                setTimeout(() => el.textContent = '+' + num, 2100);
+                            }, 300);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
