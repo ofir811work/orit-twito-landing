@@ -116,6 +116,111 @@
             }
         }
 
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: perspective(400px) rotateY(90deg);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(400px) rotateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -125,6 +230,135 @@
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Animation variations */
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .animate-rotate {
+            opacity: 0;
+            transform: rotate(-10deg) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-rotate.visible {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+
+        .animate-bounce {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .animate-bounce.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .animate-flip {
+            opacity: 0;
+            transform: perspective(400px) rotateY(90deg);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-flip.visible {
+            opacity: 1;
+            transform: perspective(400px) rotateY(0);
+        }
+
+        .animate-zoom {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-zoom.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Staggered delays for children */
+        .stagger-children > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children > *:nth-child(3) { transition-delay: 0.25s; }
+        .stagger-children > *:nth-child(4) { transition-delay: 0.3s; }
+        .stagger-children > *:nth-child(5) { transition-delay: 0.35s; }
+        .stagger-children > *:nth-child(6) { transition-delay: 0.4s; }
+
+        /* Section transitions */
+        section {
+            position: relative;
+        }
+
+        .section-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .section-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .section-wave-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .section-wave-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        /* Parallax-like effect */
+        .parallax-element {
+            transition: transform 0.3s ease-out;
         }
 
         /* Header */
@@ -1252,7 +1486,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-image">
-                <img src="orit.jpg" alt="אורית טויטו - יועצת הנקה">
+                <img src="IMG-20261004-WA0003.jpg" alt="אורית טויטו - יועצת הנקה">
                 <div class="floating-badge experience">
                     <div class="number">+10</div>
                     <div class="text">שנות ניסיון</div>
@@ -1282,41 +1516,22 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item animate-on-scroll">
-                <div class="stat-icon">👶</div>
-                <div class="stat-number">+1000</div>
-                <div class="stat-text">תינוקות שליוויתי</div>
-            </div>
-            <div class="stat-item animate-on-scroll">
-                <div class="stat-icon">⏰</div>
-                <div class="stat-number">+10</div>
-                <div class="stat-text">שנות ניסיון</div>
-            </div>
-            <div class="stat-item animate-on-scroll">
-                <div class="stat-icon">🏥</div>
-                <div class="stat-number">100%</div>
-                <div class="stat-text">מקצועיות</div>
-            </div>
-            <div class="stat-item animate-on-scroll">
-                <div class="stat-icon">💗</div>
-                <div class="stat-number">5.0</div>
-                <div class="stat-text">דירוג שביעות רצון</div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- About Section -->
     <section class="about" id="about">
+        <div class="section-wave-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="var(--cream)"></path>
+            </svg>
+        </div>
         <div class="about-container">
-            <div class="about-image animate-on-scroll">
-                <img src="orit.jpg" alt="אורית טויטו">
+            <div class="about-image animate-slide-right">
+                <img src="IMG-20261004-WA0003.jpg" alt="אורית טויטו">
                 <div class="about-decoration"></div>
             </div>
-            <div class="about-content animate-on-scroll">
-                <span class="section-tag">👋 קצת עליי</span>
+            <div class="about-content animate-slide-left">
+                <span class="section-tag animate-bounce">👋 קצת עליי</span>
                 <h2 class="section-title">ניסיון, מקצועיות<br>והרבה לב</h2>
                 <p class="about-text">
                     לאורך השנים עבדתי כאחות בפגייה וכאחות ילדים בקהילה, וצברתי ניסיון רב בליווי אמהות ותינוקות בתקופה הרגישה והמיוחדת הזו.
@@ -1324,22 +1539,22 @@
                 <p class="about-text">
                     כיום אני מציעה הכנה להנקה עוד לפני הלידה, ייעוצי הנקה וליווי אישי לאחר הלידה, תוך התאמת המענה לצרכים הייחודיים של כל אמא ותינוק.
                 </p>
-                <div class="about-features">
-                    <div class="about-feature">
+                <div class="about-features stagger-children">
+                    <div class="about-feature animate-on-scroll">
                         <div class="about-feature-icon">🎓</div>
                         <div class="about-feature-text">
                             <h4>הסמכה מקצועית</h4>
                             <p>יועצת הנקה מוסמכת עם ניסיון קליני</p>
                         </div>
                     </div>
-                    <div class="about-feature">
+                    <div class="about-feature animate-on-scroll">
                         <div class="about-feature-icon">🏥</div>
                         <div class="about-feature-text">
                             <h4>רקע רפואי</h4>
                             <p>אחות ילדים עם ניסיון בפגייה ובקהילה</p>
                         </div>
                     </div>
-                    <div class="about-feature">
+                    <div class="about-feature animate-on-scroll">
                         <div class="about-feature-icon">💝</div>
                         <div class="about-feature-text">
                             <h4>גישה אישית</h4>
@@ -1353,48 +1568,55 @@
 
     <!-- Services Section -->
     <section class="services" id="services">
+        <div class="section-wave-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="white" opacity=".25"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="white" opacity=".5"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="white"></path>
+            </svg>
+        </div>
         <div class="services-container">
-            <div class="services-header">
+            <div class="services-header animate-scale">
                 <span class="section-tag">✨ השירותים שלי</span>
                 <h2 class="section-title">במה אני יכולה לעזור לך?</h2>
             </div>
-            <div class="services-grid">
-                <div class="service-card animate-on-scroll">
+            <div class="services-grid stagger-children">
+                <div class="service-card animate-flip">
                     <div class="service-icon">🤰</div>
                     <h3 class="service-title">הכנה להנקה טרם הלידה</h3>
                     <p class="service-description">
                         ידע, כלים והכנה מעשית לקראת התחלה רגועה ובטוחה יותר. נכיר את האתגרים ונתכונן אליהם מראש.
                     </p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-flip">
                     <div class="service-icon">🤱</div>
                     <h3 class="service-title">ייעוץ הנקה לאחר הלידה</h3>
                     <p class="service-description">
                         התמודדות עם קשיים ואתגרים בהנקה, והתאמת הפתרונות לצרכים שלך ושל תינוקך באופן מדויק.
                     </p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-flip">
                     <div class="service-icon">🍼</div>
                     <h3 class="service-title">הגברת חלב</h3>
                     <p class="service-description">
                         בעלת ניסיון בליווי תהליכים להגברת ייצור החלב, תוך התאמה אישית למצבך ולצרכים של התינוק.
                     </p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-flip">
                     <div class="service-icon">📋</div>
                     <h3 class="service-title">תוכנית שאיבות אישית</h3>
                     <p class="service-description">
                         התאמת תוכנית שאיבות אישית בהתאם למטרות שלך, לשגרת היום ולצרכים של התינוק.
                     </p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-flip">
                     <div class="service-icon">🤗</div>
                     <h3 class="service-title">ליווי אישי לאחר הלידה</h3>
                     <p class="service-description">
                         תמיכה, הכוונה ומענה מקצועי לשאלות ולאתגרים שעולים לאורך הדרך. את לא לבד.
                     </p>
                 </div>
-                <div class="service-card animate-on-scroll">
+                <div class="service-card animate-flip">
                     <div class="service-icon">💬</div>
                     <h3 class="service-title">זמינות לשאלות</h3>
                     <p class="service-description">
@@ -1403,42 +1625,52 @@
                 </div>
             </div>
         </div>
+        <div class="section-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="var(--primary-dark)"></path>
+            </svg>
+        </div>
     </section>
 
     <!-- Online Section -->
     <section class="online">
-        <div class="online-container animate-on-scroll">
+        <div class="online-container animate-zoom">
             <span class="section-tag">💻 ייעוץ אונליין</span>
             <h2 class="section-title">ייעוץ גם מרחוק</h2>
             <p class="online-text">
                 לא תמיד אפשר להגיע לייעוץ פרונטלי, ולכן אני מציעה גם ייעוצי הנקה וליווי אונליין, המאפשרים לקבל הכוונה מקצועית ונגישה גם מהבית.
             </p>
-            <div class="online-features">
-                <div class="online-feature">
+            <div class="online-features stagger-children">
+                <div class="online-feature animate-bounce">
                     <div class="online-feature-icon">🏠</div>
                     <span>מהנוחות של הבית</span>
                 </div>
-                <div class="online-feature">
+                <div class="online-feature animate-bounce">
                     <div class="online-feature-icon">⏰</div>
                     <span>גמישות בשעות</span>
                 </div>
-                <div class="online-feature">
+                <div class="online-feature animate-bounce">
                     <div class="online-feature-icon">📱</div>
                     <span>בווידאו או בטלפון</span>
                 </div>
             </div>
+        </div>
+        <div class="section-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V120H0Z" fill="white"></path>
+            </svg>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="testimonials-container">
-            <div class="testimonials-header">
+            <div class="testimonials-header animate-scale">
                 <span class="section-tag">💬 המלצות</span>
                 <h2 class="section-title">מה אומרות האמהות</h2>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll">
+            <div class="testimonials-grid stagger-children">
+                <div class="testimonial-card animate-rotate">
                     <div class="testimonial-quote">"</div>
                     <p class="testimonial-text">
                         אורית הצילה לי את ההנקה! אחרי שבועות של תסכול וכאב, פגישה אחת איתה שינתה את הכל. מקצועית, סבלנית ובעיקר - אנושית.
@@ -1452,7 +1684,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-card animate-rotate">
                     <div class="testimonial-quote">"</div>
                     <p class="testimonial-text">
                         ההכנה להנקה לפני הלידה עזרה לי להרגיש הרבה יותר בטוחה. ידעתי למה לצפות ואיך להתמודד. ממליצה בחום!
@@ -1466,7 +1698,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-card animate-rotate">
                     <div class="testimonial-quote">"</div>
                     <p class="testimonial-text">
                         הייעוץ האונליין היה מושלם בשבילי. לא הייתי צריכה לצאת מהבית עם התינוק, וקיבלתי מענה מקצועי ומדויק. תודה רבה!
@@ -1482,33 +1714,40 @@
                 </div>
             </div>
         </div>
+        <div class="section-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="var(--cream)"></path>
+            </svg>
+        </div>
     </section>
 
     <!-- Coverage Section -->
     <section class="coverage">
-        <div class="coverage-container animate-on-scroll">
-            <span class="section-tag">📍 אזורי שירות</span>
-            <h2 class="section-title">איפה אני נותנת שירות?</h2>
-            <div class="coverage-badges">
-                <div class="coverage-badge">
+        <div class="coverage-container">
+            <div class="animate-scale">
+                <span class="section-tag">📍 אזורי שירות</span>
+                <h2 class="section-title">איפה אני נותנת שירות?</h2>
+            </div>
+            <div class="coverage-badges stagger-children">
+                <div class="coverage-badge animate-slide-right">
                     <div class="coverage-badge-icon">📍</div>
                     <div class="coverage-badge-text">
                         <h4>מהשפלה ועד הדרום</h4>
                         <p>ייעוצים פרונטליים</p>
                     </div>
                 </div>
-                <div class="coverage-badge">
+                <div class="coverage-badge animate-on-scroll">
                     <div class="coverage-badge-icon">💻</div>
                     <div class="coverage-badge-text">
                         <h4>בכל הארץ</h4>
                         <p>ייעוצים אונליין</p>
                     </div>
                 </div>
-                <div class="coverage-badge">
+                <div class="coverage-badge animate-slide-left">
                     <div class="coverage-badge-icon">💗</div>
                     <div class="coverage-badge-text">
-                        <h4>החזרים מקופות החולים</h4>
-                        <p>בהתאם לתנאי הזכאות</p>
+                        <h4>החזרים מכל קופות החולים</h4>
+                        <p>מכבי, כללית, מאוחדת ולאומית</p>
                     </div>
                 </div>
             </div>
@@ -1517,18 +1756,25 @@
 
     <!-- CTA Section -->
     <section class="cta" id="contact">
-        <div class="cta-container animate-on-scroll">
-            <span class="section-tag">📞 צרי קשר</span>
-            <h2 class="cta-title">רוצה ליווי מקצועי, אישי ורגיש?</h2>
-            <p class="cta-text">אני כאן כדי לעזור לך למצוא את הדרך שמתאימה לך ולתינוק שלך.</p>
-            <a href="tel:054-422-8583" class="cta-phone">
+        <div class="section-wave-top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="var(--cream)"></path>
+            </svg>
+        </div>
+        <div class="cta-container">
+            <div class="animate-scale">
+                <span class="section-tag">📞 צרי קשר</span>
+                <h2 class="cta-title">רוצה ליווי מקצועי, אישי ורגיש?</h2>
+                <p class="cta-text">אני כאן כדי לעזור לך למצוא את הדרך שמתאימה לך ולתינוק שלך.</p>
+            </div>
+            <a href="tel:054-422-8583" class="cta-phone animate-bounce">
                 <span class="cta-phone-icon">📞</span>
                 054-422-8583
             </a>
-            <div class="cta-note">
-                <span>✓ מענה מהיר</span>
-                <span>✓ שיחת ייעוץ ראשונית</span>
-                <span>✓ התאמה אישית</span>
+            <div class="cta-note stagger-children">
+                <span class="animate-on-scroll">✓ מענה מהיר</span>
+                <span class="animate-on-scroll">✓ שיחת ייעוץ ראשונית</span>
+                <span class="animate-on-scroll">✓ התאמה אישית</span>
             </div>
         </div>
     </section>
@@ -1588,7 +1834,7 @@
             }
         });
 
-        // Animate on scroll
+        // Animate on scroll - handles all animation classes
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1603,7 +1849,13 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        // Select all elements with animation classes
+        const animatedElements = document.querySelectorAll(
+            '.animate-on-scroll, .animate-slide-right, .animate-slide-left, ' +
+            '.animate-scale, .animate-rotate, .animate-bounce, .animate-flip, .animate-zoom'
+        );
+        
+        animatedElements.forEach(el => {
             observer.observe(el);
         });
 
@@ -1628,48 +1880,47 @@
             });
         });
 
-        // Counter animation
-        function animateCounter(element, target, duration) {
-            let start = 0;
-            const increment = target / (duration / 16);
+        // Parallax effect on scroll
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-element');
             
-            function updateCounter() {
-                start += increment;
-                if (start < target) {
-                    element.textContent = Math.floor(start);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
+            parallaxElements.forEach(el => {
+                const speed = el.dataset.speed || 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add subtle mouse move effect to hero section
+        document.querySelector('.hero')?.addEventListener('mousemove', function(e) {
+            const heroImage = document.querySelector('.hero-image img');
+            const badges = document.querySelectorAll('.floating-badge');
+            
+            const x = (window.innerWidth / 2 - e.clientX) / 50;
+            const y = (window.innerHeight / 2 - e.clientY) / 50;
+            
+            if (heroImage) {
+                heroImage.style.transform = `translate(${x}px, ${y}px) scale(1)`;
             }
             
-            updateCounter();
-        }
-
-        // Trigger counter animation when stats section is visible
-        const statsSection = document.querySelector('.stats');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    document.querySelectorAll('.stat-number').forEach(el => {
-                        const text = el.textContent;
-                        if (text.includes('+')) {
-                            const num = parseInt(text.replace('+', ''));
-                            el.textContent = '0';
-                            setTimeout(() => {
-                                animateCounter(el, num, 2000);
-                                setTimeout(() => el.textContent = '+' + num, 2100);
-                            }, 300);
-                        }
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
+            badges.forEach((badge, index) => {
+                const factor = (index + 1) * 0.5;
+                badge.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
             });
-        }, { threshold: 0.5 });
+        });
 
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
+        document.querySelector('.hero')?.addEventListener('mouseleave', function() {
+            const heroImage = document.querySelector('.hero-image img');
+            const badges = document.querySelectorAll('.floating-badge');
+            
+            if (heroImage) {
+                heroImage.style.transform = 'translate(0, 0) scale(1)';
+            }
+            
+            badges.forEach(badge => {
+                badge.style.transform = 'translate(0, 0)';
+            });
+        });
     </script>
 </body>
 </html>
