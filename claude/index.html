@@ -2,7 +2,8 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#e8a4b8">
 <title>אורית טויטו — ייעוץ והכנה להנקה | אחות ילדים ויועצת הנקה מוסמכת</title>
 <meta name="description" content="אורית טויטו — אחות ילדים ויועצת הנקה מוסמכת, מעל עשור של ניסיון. הכנה להנקה, ייעוץ וליווי אישי לפני ואחרי הלידה, הגברת חלב ותוכניות שאיבות. פרונטלי ואונליין.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -284,8 +285,8 @@ footer{background:var(--brown);color:#f3e4dc;padding:60px 0 30px;position:relati
   .online-visual{display:none}
 }
 @media(max-width:620px){
-  .nav-links{position:fixed;top:0;right:-100%;width:78%;height:100vh;background:var(--cream);flex-direction:column;
-    justify-content:center;gap:28px;transition:right .4s;box-shadow:-10px 0 40px var(--shadow-strong);z-index:905}
+  .nav-links{position:fixed;top:0;right:-100%;width:min(80%,320px);height:100vh;background:var(--cream);flex-direction:column;
+    justify-content:center;gap:26px;transition:right .4s;box-shadow:-10px 0 40px var(--shadow-strong);z-index:905}
   .nav-links.open{right:0}
   .burger{display:flex}
   .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
@@ -296,6 +297,115 @@ footer{background:var(--brown);color:#f3e4dc;padding:60px 0 30px;position:relati
   .sec-pad{padding:70px 0}
   .form{padding:30px 24px}
   .cta-sec::before{font-size:10rem}
+}
+
+/* ---------- Phones (POCO X7 ≈ 393px, tall & narrow) ---------- */
+@media(max-width:480px){
+  /* kill any horizontal overflow */
+  body{overflow-x:hidden}
+  .container{padding:0 18px}
+  .blob{filter:blur(50px);opacity:.4}
+  .blob.b1{width:260px;height:260px;right:-80px}
+  .blob.b2{width:240px;height:240px;left:-90px}
+  .blob.b3{width:200px;height:200px;right:-70px}
+
+  /* nav */
+  header{padding:12px 0}
+  header.scrolled{padding:8px 0}
+  .nav{padding:0 18px}
+  .logo{font-size:1.1rem;gap:9px}
+  .logo .mark{width:38px;height:38px;font-size:1.2rem}
+  .logo small{font-size:.6rem;letter-spacing:2px}
+
+  /* hero */
+  .hero{padding:96px 0 40px;min-height:auto}
+  .hero-wrap{gap:44px}
+  .badge{font-size:.74rem;padding:7px 14px;margin-bottom:18px}
+  .hero h1{font-size:2rem;line-height:1.18}
+  .hero .sub{font-size:1rem;margin-bottom:18px}
+  .hero p.lead{font-size:1rem;margin-bottom:26px}
+  .hero-cta{gap:12px;margin-bottom:30px}
+  .btn{width:100%;justify-content:center;padding:15px 24px;font-size:1rem}
+  .hero-stats{justify-content:space-between;gap:10px;text-align:center}
+  .hero-stats .stat b{font-size:1.6rem}
+  .hero-stats .stat span{font-size:.78rem}
+
+  /* hero photo — shrink floating cards & pull them inside the frame */
+  .hero-visual{max-width:340px}
+  .photo-frame{border-width:6px;transform:rotate(0deg)}
+  .photo-ring{inset:-10px}
+  .float-card{padding:9px 12px;font-size:.74rem;gap:8px;border-radius:14px;max-width:62%}
+  .float-card .ic{width:30px;height:30px;font-size:1rem;border-radius:9px}
+  .fc1{top:10px;right:-6px}
+  .fc2{bottom:40px;left:-6px}
+  .fc3{bottom:-10px;right:14px}
+
+  /* section headings */
+  .sec-pad{padding:56px 0}
+  .sec-head{margin-bottom:40px}
+  .eyebrow{font-size:.72rem;letter-spacing:2.5px}
+  .sec-head h2{font-size:1.7rem}
+  .sec-head p{font-size:1rem}
+
+  /* about */
+  .about-grid{gap:40px}
+  .about-text h2{font-size:1.7rem}
+  .about-text p{font-size:1rem}
+
+  /* service / info cards */
+  .card{padding:30px 24px}
+  .card .emoji{width:60px;height:60px;font-size:1.7rem;margin-bottom:18px}
+  .card h3{font-size:1.2rem}
+  .card .num{font-size:4rem}
+  .info-card{padding:28px 22px}
+
+  /* online banner */
+  .online{padding:34px 24px;border-radius:26px}
+  .online h2{font-size:1.5rem}
+  .online p{font-size:1rem}
+  .online .tag{font-size:.84rem;padding:8px 14px}
+
+  /* steps */
+  .step .circle{width:72px;height:72px;font-size:1.7rem}
+
+  /* testimonials */
+  .quote{padding:30px 24px}
+  .quote p{font-size:1rem}
+
+  /* CTA + form */
+  .cta-left h2{font-size:1.8rem}
+  .cta-left p{font-size:1.05rem}
+  .cta-contact{font-size:1.05rem;padding:14px 18px}
+  .cta-contact .ic{width:42px;height:42px;font-size:1.25rem}
+  .form{padding:26px 20px;border-radius:22px}
+  .form h3{font-size:1.4rem}
+
+  /* footer */
+  footer{padding:46px 0 26px}
+  .foot-brand p{max-width:none}
+
+  /* floating buttons — smaller & safe from edges */
+  .wa-float{width:54px;height:54px;font-size:1.6rem;bottom:18px;left:16px}
+  .toTop{width:46px;height:46px;font-size:1.15rem;bottom:18px;right:16px}
+}
+
+/* very narrow / stacked toolbars */
+@media(max-width:360px){
+  .hero h1{font-size:1.8rem}
+  .hero-stats{flex-wrap:wrap;row-gap:14px}
+  .float-card{font-size:.7rem;max-width:58%}
+}
+
+/* short landscape phones */
+@media(max-height:480px) and (orientation:landscape){
+  .nav-links.open{justify-content:flex-start;padding-top:70px;overflow-y:auto}
+  .hero{min-height:auto;padding:90px 0 40px}
+}
+
+/* respect reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
